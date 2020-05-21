@@ -1,11 +1,11 @@
-import { useContext } from 'react'
-import createClient from "./createClient";
-import ClientsContext from './ClientsContext'
+import { useContext } from 'react';
+import createClient from './createClient';
+import ClientsContext from './ClientsContext';
 const useClient = ({ url, headers, isServer = false }: UseClientProps) => {
-  const clients: any = useContext(ClientsContext)
-  const uri = url.uri
+  const clients: any = useContext(ClientsContext);
+  const uri = url.uri;
   if (clients[uri]) {
-    return clients[uri]
+    return clients[uri];
   } else {
     const defaultState = {};
     clients[uri] = createClient(
@@ -18,7 +18,7 @@ const useClient = ({ url, headers, isServer = false }: UseClientProps) => {
       uri
     );
     return clients[uri];
-  }  
+  }
 };
 
 export default useClient;
